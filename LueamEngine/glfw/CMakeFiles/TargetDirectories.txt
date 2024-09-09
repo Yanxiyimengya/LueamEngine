@@ -1,0 +1,8 @@
+C:/Users/guosh/source/repos/LueamEngine/glfw/CMakeFiles/uninstall.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/CMakeFiles/INSTALL.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/CMakeFiles/ALL_BUILD.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/CMakeFiles/ZERO_CHECK.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/src/CMakeFiles/glfw.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/src/CMakeFiles/update_mappings.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/src/CMakeFiles/INSTALL.dir
+C:/Users/guosh/source/repos/LueamEngine/glfw/docs/CMakeFiles/INSTALL.dir

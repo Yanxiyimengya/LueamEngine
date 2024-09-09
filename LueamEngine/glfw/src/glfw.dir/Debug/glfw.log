@@ -1,0 +1,26 @@
+﻿  Building Custom Rule C:/Users/guosh/Downloads/glfw-3.4/glfw-3.4/src/CMakeLists.txt
+  context.c
+  init.c
+  input.c
+  monitor.c
+  platform.c
+  vulkan.c
+  window.c
+  egl_context.c
+  osmesa_context.c
+  null_init.c
+  null_monitor.c
+  null_window.c
+  null_joystick.c
+  win32_module.c
+  win32_time.c
+  win32_thread.c
+  win32_init.c
+  win32_joystick.c
+  win32_monitor.c
+  win32_window.c
+  正在生成代码...
+  正在编译...
+  wgl_context.c
+  正在生成代码...
+  glfw.vcxproj -> C:\Users\guosh\source\repos\LueamEngine\glfw\src\Debug\glfw3.lib

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\guosh\source\repos\LueamEngine\glfw\CMakeFiles\61437b13e9bf4a77cbe073d4236c864f\INSTALL_force.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{219321D0-4940-392B-9FDF-89D99865AA9D}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
