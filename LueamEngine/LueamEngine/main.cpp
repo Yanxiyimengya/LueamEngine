@@ -1,3 +1,5 @@
+#include "glad/glad.h"
+#include "glfw/glfw3.h"
 #include "lua.h"
 // ÒýÓÃ»ù´¡¿â
 
@@ -15,9 +17,9 @@ GLfloat vertices_1[] =
 int main()
 {
 	MainLoop main_loop;
-	main_loop.renderer = new Renderer();
 	Window* main_window = main_loop.create_window(Vector2(640, 480));
-	main_loop.create_window(Vector2(640, 480));
+	glfwMakeContextCurrent(main_window->handle);
+	gladLoadGL();
 	main_loop.run();
 	
 

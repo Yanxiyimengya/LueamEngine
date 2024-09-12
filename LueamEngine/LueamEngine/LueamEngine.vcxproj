@@ -165,6 +165,7 @@
     <ClCompile Include="Core\GameObject\Script.cpp" />
     <ClCompile Include="Core\GameObject\MainLoop.cpp" />
     <ClCompile Include="Core\Graphics\VertexBuffer.cpp" />
+    <ClCompile Include="Core\Graphics\VertexBufferFormat.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Buffer.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Core\GameObject\Script.h" />
     <ClInclude Include="Core\GameObject\MainLoop.h" />
     <ClInclude Include="Core\Graphics\VertexBuffer.h" />
+    <ClInclude Include="Core\Graphics\VertexBufferFormat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

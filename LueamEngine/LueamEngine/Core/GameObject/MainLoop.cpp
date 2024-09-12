@@ -1,38 +1,52 @@
-//#include "glad/glad.h"
-#include "glfw/glfw3.h"
 #include "MainLoop.h"
 #include "lua.hpp"
+#include "../Core.h"
+
+MainLoop::MainLoop() {
+	this->renderer = new Renderer(); // 初始化渲染器对象
+}
+
+MainLoop::~MainLoop() {
+	delete this->renderer; // 释放渲染器对象
+}
+
 
 void MainLoop::run() {
-
 	for (const GameObject& _obj : this->object_list) {
 		if (_obj.lua_state != NULL) {
-
+			 
 		}
 	}
 
-	while (!this->quitting) {
+	VertexBufferFormat vbf;
+	vbf.begin();
+	vbf.add_position_2d();
+	vbf.end();
+
+	VertexBuffer vbo(vbf);
+	vbo.begin();
+	vbo.add_position_2d(Vector2(-1.0, -1.0));
+	vbo.add_position_2d(Vector2(1.0, -1.0));
+	vbo.add_position_2d(Vector2(0.0, 1.0));
+	vbo.end();
+
+
+
+	while (!this->closed) {
 		Window* window;
 		for (int i = 0; i < this->window_list.size();i ++) {
 			window = &this->window_list[i];
 			if (!glfwWindowShouldClose(window->handle)) {
 				glfwMakeContextCurrent(window->handle);
 
-				glBegin(GL_TRIANGLES);
-				glColor3f(1.0f, 0.0f, 0.0f);  // 设置顶点颜色为红色
-				glVertex3f(-1.0f, -1.0f, 0.0f);  // 设置第一个顶点
-				glColor3f(0.0f, 1.0f, 0.0f);  // 设置顶点颜色为绿色
-				glVertex3f(1.0f, -1.0f, 0.0f);  // 设置第二个顶点
-				glColor3f(0.0f, 0.0f, 1.0f);  // 设置顶点颜色为蓝色
-				glVertex3f(0.0f, 1.0f, 0.0f);  // 设置第三个顶点
-				glEnd();
-
+				this->renderer->draw_buffer(vbo);
+				
 				glfwSwapBuffers(window->handle);
 				glfwPollEvents();
 			}
 			else {
 				if (window->handle == this->main_window) {
-					return;
+					this->close();
 				}
 				else {
 					this->window_list.erase(this->window_list.begin() + i);
@@ -57,10 +71,10 @@ Window* MainLoop::create_window(Vector2 size) {
 	return window;
 };
 
-bool MainLoop::is_quitting() {
-	return this->quitting;
+bool MainLoop::is_closed() {
+	return this->closed;
 }
 
-void MainLoop::quit() {
-	this->quitting = true;
+void MainLoop::close() {
+	this->closed = true;
 }

@@ -5,3 +5,4 @@
 #include "Core/UString.h"
 #include "Core/Graphics/Renderer.h"
 #include "Core/GameObject/MainLoop.h"
+#include "Core/Graphics/VertexBufferFormat.h"
