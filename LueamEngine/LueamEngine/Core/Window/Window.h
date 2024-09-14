@@ -11,7 +11,10 @@ public:
 
 	Vector2 position;
 	Vector2 size;
-	String title = "1";
+	String title = "Program";
 
 	Window();
+
+	void resize(Vector2 vec);
+	void set_position(Vector2 position);
 };

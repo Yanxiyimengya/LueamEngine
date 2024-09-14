@@ -9,7 +9,7 @@ public:
 	Renderer();
 	~Renderer();
 
-
+	void draw_line(Vector2 start, Vector2 end);
 	void draw_buffer(VertexBuffer &buffer);
 };
 

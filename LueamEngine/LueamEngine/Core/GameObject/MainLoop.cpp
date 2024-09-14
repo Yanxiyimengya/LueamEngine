@@ -30,15 +30,34 @@ void MainLoop::run() {
 	vbo.add_position_2d(Vector2(0.0, 1.0));
 	vbo.end();
 
-
+	Shader shader(String(
+	"#version 330 core\n"
+	"layout(location = 0) in vec3 aPos;\n"
+	"void main()\n"
+	"{\n"
+	"	gl_Position = vec4(aPos, 1.0);\n"
+	"}\n"
+	),String(
+	"#version 330 core\n"
+	"out vec4 FragColor;\n"
+	"void main()\n"
+	"{\n"
+	//"	FragColor = ourColor;\n"
+	"	FragColor.rgb = vec3(1.0, 0.0, 0.0);"
+	"}\n"
+	));
+	shader.compile_shader();
+	
 
 	while (!this->closed) {
 		Window* window;
 		for (int i = 0; i < this->window_list.size();i ++) {
 			window = &this->window_list[i];
+
 			if (!glfwWindowShouldClose(window->handle)) {
 				glfwMakeContextCurrent(window->handle);
 
+				shader.use_shader();
 				this->renderer->draw_buffer(vbo);
 				
 				glfwSwapBuffers(window->handle);
