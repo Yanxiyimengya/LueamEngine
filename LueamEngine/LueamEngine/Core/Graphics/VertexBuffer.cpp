@@ -1,6 +1,5 @@
 #include "VertexBuffer.h"
 #include "glad/glad.h"
-
 #include <iostream>
 
 VertexBuffer::VertexBuffer(VertexBufferFormat& fromat)
@@ -32,15 +31,15 @@ void VertexBuffer::end()
 		{
 		case TEXCOORD:
 		case POSITION_2D:
-			glVertexAttribPointer(count, 2, GL_FLOAT, GL_FALSE, 0, (void*)pointer);
+			glVertexAttribPointer(count, 2, GL_FLOAT, GL_FALSE, this->fromat->vertex_size, (void*)pointer);
 			pointer += sizeof(float) * 2;
 			break;
 		case POSITION_3D:
-			glVertexAttribPointer(count, 3, GL_FLOAT, GL_FALSE, 0, (void*)pointer);
+			glVertexAttribPointer(count, 3, GL_FLOAT, GL_FALSE, this->fromat->vertex_size, (void*)pointer);
 			pointer += sizeof(float) * 3;
 			break;
 		case COLOR:
-			glVertexAttribPointer(count, 4, GL_FLOAT, GL_FALSE, 0, (void*)pointer);
+			glVertexAttribPointer(count, 4, GL_FLOAT, GL_FALSE, this->fromat->vertex_size, (void*)pointer);
 			pointer += sizeof(float) * 4;
 			break;
 		}
@@ -53,7 +52,7 @@ void VertexBuffer::end()
 	glBindVertexArray(vao);
  
 	glBufferData(GL_ARRAY_BUFFER, memory_size, this->data.data(), GL_DYNAMIC_DRAW);
-
+	
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 }
@@ -69,8 +68,13 @@ void VertexBuffer::add_position_3d()
 {
 }
 
-void VertexBuffer::add_color()
+void VertexBuffer::add_color(Color col)
 {
+	this->data.push_back(col.r);
+	this->data.push_back(col.g);
+	this->data.push_back(col.b);
+	this->data.push_back(col.a);
+	vertex_count += 1;
 }
 
 void VertexBuffer::add_uv()

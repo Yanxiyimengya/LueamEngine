@@ -11,7 +11,7 @@ class Buffer
 	int buffer_size = 0;			// 缓冲区大小
 	BUFFER_TYPE type = FIXED;
 	void* buffer_ptr = nullptr;		// 指向缓冲区内存的指针
-	unsigned short seek_offset = 0;	// 搜索偏移量
+	unsigned long long seek_offset = 0;	// 搜索偏移量
 
 	void write_memory(void* value, int length);
 public :
@@ -36,6 +36,6 @@ public :
 	void write(double value);
 	void copy_buffer(Buffer& value, int position, int length);
 
-	char get_byte();
+	char operator[](unsigned long long value);
 };
 

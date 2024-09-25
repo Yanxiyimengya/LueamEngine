@@ -5,8 +5,7 @@
 Buffer::Buffer() = default;
 Buffer::Buffer(int size, BUFFER_TYPE buff_type = FIXED) {
 	if (size > 0) {
-		buffer_ptr = malloc(size); // ¿ª±ÙBufferÄÚ´æ
-		seek_offset = size;
+        resize(size);
 	};
 	this->type = buff_type;
 }
@@ -53,7 +52,7 @@ void Buffer::write_memory(void* value, int length) {
     if (length > 0 && this->buffer_ptr != nullptr) {
         void* target = (void*)((unsigned long long)this->buffer_ptr + this->seek_offset);
         int vacant = length - (this->buffer_size - this->seek_offset);
-
+        
         if (vacant > -1) {
             std::memcpy(target, value, length);
             this->seek_offset += length;
@@ -61,8 +60,8 @@ void Buffer::write_memory(void* value, int length) {
         else {
             switch (this->type) {
             case FIXED:
-                std::memcpy(target, value, length + vacant);
-                this->seek_offset += length + vacant;
+                std::memcpy(target, value, length - vacant);
+                this->seek_offset += length;
                 break;
             case GROW:
                 resize(this->buffer_size + length);
@@ -119,11 +118,12 @@ void Buffer::copy_buffer(Buffer& value, int position, int length) {
     }
 }
 
-char Buffer::get_byte() {
+char Buffer::operator[](unsigned long long value)
+{
     if (this->buffer_size > 0 && this->buffer_ptr != nullptr) {
-        char* pos = (char*)((unsigned long long)this->buffer_ptr + this->seek_offset);
+        char* pos = (char*)((unsigned long long)this->buffer_ptr + value);
         return *pos;
     }
-    return 0;
+    return NULL;
 }
 

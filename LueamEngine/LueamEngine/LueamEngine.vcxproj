@@ -155,12 +155,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Core\Graphics\Color.cpp" />
     <ClCompile Include="Core\Buffer.cpp" />
     <ClCompile Include="Core\Math\Vector\Vector.cpp" />
     <ClCompile Include="Core\Window\Window.cpp" />
     <ClCompile Include="Core\Graphics\Renderer.cpp" />
     <ClCompile Include="Core\UString.cpp" />
     <ClCompile Include="Core\GameObject\GameObject.cpp" />
+    <ClCompile Include="Core\IO\FileAccess.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Core\GameObject\Script.cpp" />
     <ClCompile Include="Core\GameObject\MainLoop.cpp" />
@@ -169,6 +171,7 @@
     <ClCompile Include="Core\Graphics\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Graphics\Color.h" />
     <ClInclude Include="Core\Buffer.h" />
     <ClInclude Include="Core\Core.h" />
     <ClInclude Include="Core\Math\Vector\Vector.h" />
@@ -181,6 +184,7 @@
     <ClInclude Include="Core\Graphics\VertexBuffer.h" />
     <ClInclude Include="Core\Graphics\VertexBufferFormat.h" />
     <ClInclude Include="Core\Graphics\Shader.h" />
+    <ClInclude Include="Core\IO\FileAccess.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

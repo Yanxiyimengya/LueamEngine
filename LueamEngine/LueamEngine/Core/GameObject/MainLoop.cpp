@@ -21,29 +21,33 @@ void MainLoop::run() {
 	VertexBufferFormat vbf;
 	vbf.begin();
 	vbf.add_position_2d();
+	vbf.add_color();
 	vbf.end();
 
 	VertexBuffer vbo(vbf);
 	vbo.begin();
-	vbo.add_position_2d(Vector2(-1.0, -1.0));
-	vbo.add_position_2d(Vector2(1.0, -1.0));
-	vbo.add_position_2d(Vector2(0.0, 1.0));
+	vbo.add_position_2d(Vector2(-1.0, -1.0));	vbo.add_color(Color(1, 0, 0));
+	vbo.add_position_2d(Vector2( 1.0,  -1.0));  vbo.add_color(Color(0, 1, 0));
+	vbo.add_position_2d(Vector2( 0.0,   1.0));  vbo.add_color(Color(0, 0, 1));
 	vbo.end();
 
 	Shader shader(String(
 	"#version 330 core\n"
-	"layout(location = 0) in vec3 aPos;\n"
+	"layout(location = 0) in vec2 aPos;\n"
+	"layout(location = 1) in vec4 aColor;\n"
+	"out vec4 color;\n"
 	"void main()\n"
 	"{\n"
-	"	gl_Position = vec4(aPos, 1.0);\n"
+	"	gl_Position = vec4(aPos, 1.0, 1.0);\n"
+	"	color = aColor;\n"
 	"}\n"
 	),String(
 	"#version 330 core\n"
 	"out vec4 FragColor;\n"
+	"in vec4 color;\n"
 	"void main()\n"
 	"{\n"
-	//"	FragColor = ourColor;\n"
-	"	FragColor.rgb = vec3(1.0, 0.0, 0.0);"
+	"	FragColor = color;"
 	"}\n"
 	));
 	shader.compile_shader();

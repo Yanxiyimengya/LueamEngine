@@ -20,3 +20,18 @@ String::String(const char value[]) {
 String::operator const char* () {
     return (const char*)data;
 }
+
+char String::operator[](unsigned long index)
+{
+    return this->data[((index + len) % len)];
+}
+
+bool String::is_empty()
+{
+    return std::strlen(data) == 0;
+}
+
+unsigned long String::length()
+{
+    return this->len;
+}

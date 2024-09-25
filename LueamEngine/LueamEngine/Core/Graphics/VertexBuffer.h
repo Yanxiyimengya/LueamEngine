@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "Core/Buffer.h"
+#include "Core/Graphics/Color.h"
 #include "Core/Graphics/VertexBufferFormat.h"
 #include "Core/Math/Vector/Vector.h"
 
@@ -18,7 +19,7 @@ public:
 	void end();
 	void add_position_2d(Vector2 vec);
 	void add_position_3d();
-	void add_color();
+	void add_color(Color col);
 	void add_uv();
 };
 

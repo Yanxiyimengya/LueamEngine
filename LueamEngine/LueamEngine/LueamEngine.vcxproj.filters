@@ -51,6 +51,12 @@
     <ClCompile Include="Core\Graphics\Shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Core\IO\FileAccess.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Core\Graphics\Color.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Core\Window\Window.h">
@@ -87,6 +93,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Core\Graphics\Shader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\IO\FileAccess.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Core\Graphics\Color.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
